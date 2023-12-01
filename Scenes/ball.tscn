@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://bwyv447cy7nxc"]
+
+[ext_resource type="Script" path="res://Scenes/Ball.gd" id="1_vnb34"]
+[ext_resource type="Texture2D" uid="uid://dagp0edgj758p" path="res://Graphics/Balls/ball_1.png" id="2_3sqlg"]
+[ext_resource type="Texture2D" uid="uid://bgvuiw8g33dc7" path="res://Graphics/Balls/ball_2.png" id="3_wt5a7"]
+[ext_resource type="Texture2D" uid="uid://crke015o7380m" path="res://Graphics/Balls/ball_3.png" id="4_swmrl"]
+[ext_resource type="Texture2D" uid="uid://dbsg5hdiwujyt" path="res://Graphics/Balls/ball_4.png" id="5_6113v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xs2ug"]
+radius = 24.0832
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1y1bt"]
+radius = 34.2345
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sn8nh"]
+radius = 50.1597
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_r03fc"]
+radius = 68.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4nc64"]
+radius = 130.231
+
+[node name="Ball" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_vnb34")
+
+[node name="Ball1" type="Sprite2D" parent="."]
+position = Vector2(234, 174)
+texture = ExtResource("2_3sqlg")
+
+[node name="Ball_1" type="Area2D" parent="." groups=["Ball"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball_1"]
+position = Vector2(542, 220)
+shape = SubResource("CircleShape2D_xs2ug")
+
+[node name="Ball2" type="Sprite2D" parent="."]
+position = Vector2(536, 178)
+texture = ExtResource("3_wt5a7")
+
+[node name="Ball_2" type="Area2D" parent="." groups=["Ball"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball_2"]
+position = Vector2(542, 220)
+shape = SubResource("CircleShape2D_1y1bt")
+
+[node name="Ball3" type="Sprite2D" parent="."]
+position = Vector2(534, 180)
+texture = ExtResource("4_swmrl")
+
+[node name="Ball_3" type="Area2D" parent="." groups=["Ball"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball_3"]
+position = Vector2(540, 222)
+shape = SubResource("CircleShape2D_sn8nh")
+
+[node name="Ball4" type="Sprite2D" parent="."]
+position = Vector2(534, 240)
+texture = ExtResource("5_6113v")
+
+[node name="Ball_4" type="Area2D" parent="." groups=["Ball"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball_4"]
+position = Vector2(540, 224)
+shape = SubResource("CircleShape2D_r03fc")
+
+[node name="Coll_shape" type="CollisionShape2D" parent="."]
+position = Vector2(538, 224)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_4nc64")
+
+[connection signal="area_entered" from="Ball_1" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Ball_2" to="." method="_on_ball_2_area_entered"]
+[connection signal="area_entered" from="Ball_3" to="." method="_on_ball_3_area_entered"]
+[connection signal="area_entered" from="Ball_4" to="." method="_on_ball_4_area_entered"]

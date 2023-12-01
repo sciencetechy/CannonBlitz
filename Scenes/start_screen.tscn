@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://dl1r4jgyx7jwh"]
+
+[ext_resource type="Script" path="res://Scenes/start_screen.gd" id="1_vi11f"]
+[ext_resource type="PackedScene" uid="uid://bbuc336oubxgd" path="res://Scenes/Platform.tscn" id="2_6o1dr"]
+[ext_resource type="Texture2D" uid="uid://bdrg7sun2ih1v" path="res://Graphics/canon (1).png" id="3_5gv5n"]
+[ext_resource type="Texture2D" uid="uid://dprxyqor14da0" path="res://Graphics/bullet.png" id="4_mpkke"]
+[ext_resource type="Texture2D" uid="uid://dagp0edgj758p" path="res://Graphics/Balls/ball_1.png" id="5_iog3s"]
+[ext_resource type="Texture2D" uid="uid://bgvuiw8g33dc7" path="res://Graphics/Balls/ball_2.png" id="6_bx2ya"]
+[ext_resource type="Texture2D" uid="uid://crke015o7380m" path="res://Graphics/Balls/ball_3.png" id="7_ft4ms"]
+[ext_resource type="Texture2D" uid="uid://prcojwj3qu52" path="res://Graphics/Balls/ball_3_1.png" id="8_twfsb"]
+[ext_resource type="Texture2D" uid="uid://dbsg5hdiwujyt" path="res://Graphics/Balls/ball_4.png" id="9_cyb3c"]
+[ext_resource type="Texture2D" uid="uid://b5re46iuv18pj" path="res://Graphics/title (1).png" id="10_8nhfy"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_h256q"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_qrued"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_vi11f")
+
+[node name="Platform" parent="." instance=ExtResource("2_6o1dr")]
+position = Vector2(-10, 98)
+
+[node name="Canon(1)" type="Sprite2D" parent="."]
+position = Vector2(324, 382)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("3_5gv5n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(329, 237)
+rotation = -1.5708
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_mpkke")
+
+[node name="wall_l_mesh" type="MeshInstance2D" parent="."]
+position = Vector2(99.875, -369.5)
+scale = Vector2(212.25, 2083)
+mesh = SubResource("QuadMesh_h256q")
+
+[node name="wall_r_mesh" type="MeshInstance2D" parent="."]
+position = Vector2(1063, -433)
+scale = Vector2(373.5, 2342)
+mesh = SubResource("QuadMesh_qrued")
+
+[node name="Ball1" type="Sprite2D" parent="."]
+position = Vector2(22, 115)
+texture = ExtResource("5_iog3s")
+
+[node name="Ball2" type="Sprite2D" parent="."]
+position = Vector2(597, 294)
+texture = ExtResource("6_bx2ya")
+
+[node name="Ball3" type="Sprite2D" parent="."]
+position = Vector2(577, 166)
+texture = ExtResource("7_ft4ms")
+
+[node name="Ball31" type="Sprite2D" parent="."]
+position = Vector2(780, 305)
+texture = ExtResource("8_twfsb")
+
+[node name="Ball4" type="Sprite2D" parent="."]
+position = Vector2(773, 97)
+texture = ExtResource("9_cyb3c")
+
+[node name="Title(1)" type="Sprite2D" parent="."]
+position = Vector2(539, 106)
+scale = Vector2(0.520635, 0.520635)
+texture = ExtResource("10_8nhfy")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 431.0
+offset_top = 532.0
+offset_right = 699.0
+offset_bottom = 563.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Press the Space Bar to Start"

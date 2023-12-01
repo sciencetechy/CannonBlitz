@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://ciqh2rp4m6ypd"]
+
+[ext_resource type="PackedScene" uid="uid://bbuc336oubxgd" path="res://Scenes/Platform.tscn" id="1_3prrt"]
+[ext_resource type="Texture2D" uid="uid://mc0hqdnikquh" path="res://Graphics/things/die_screen.png" id="2_ssaqk"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_p7uyn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3r1cf"]
+size = Vector2(214, 2070)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ushfn"]
+size = Vector2(214, 2081)
+
+[sub_resource type="QuadMesh" id="QuadMesh_evie7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8oai"]
+size = Vector2(379, 2325)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ws3v"]
+size = Vector2(374, 2340)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_3prrt")]
+position = Vector2(-10, 98)
+
+[node name="Wall_left" type="StaticBody2D" parent="."]
+
+[node name="wall_l_mesh" type="MeshInstance2D" parent="Wall_left"]
+position = Vector2(99.875, -369.5)
+scale = Vector2(212.25, 2083)
+mesh = SubResource("QuadMesh_p7uyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_left"]
+position = Vector2(97, -361)
+shape = SubResource("RectangleShape2D_3r1cf")
+
+[node name="Area2D" type="Area2D" parent="Wall_left" groups=["Wall"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_left/Area2D"]
+position = Vector2(97, -368.5)
+shape = SubResource("RectangleShape2D_ushfn")
+
+[node name="Wall_right" type="StaticBody2D" parent="."]
+
+[node name="wall_r_mesh" type="MeshInstance2D" parent="Wall_right"]
+position = Vector2(1063, -433)
+scale = Vector2(373.5, 2342)
+mesh = SubResource("QuadMesh_evie7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_right"]
+position = Vector2(1063.5, -425.5)
+shape = SubResource("RectangleShape2D_o8oai")
+
+[node name="Area2D" type="Area2D" parent="Wall_right" groups=["Wall"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_right/Area2D"]
+position = Vector2(1064, -432)
+shape = SubResource("RectangleShape2D_5ws3v")
+
+[node name="DieScreen" type="Sprite2D" parent="."]
+position = Vector2(525, 310)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_ssaqk")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 490.0
+offset_top = 478.0
+offset_right = 873.0
+offset_bottom = 541.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Press the space bar to try again"

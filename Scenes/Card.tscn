@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bluijpa1etg3u"]
+
+[ext_resource type="Script" path="res://Scenes/Node2D.gd" id="1_a3oh8"]
+[ext_resource type="Texture2D" uid="uid://blosqds63bagl" path="res://Graphics/things/c1.png" id="2_306ey"]
+[ext_resource type="Texture2D" uid="uid://bx4kue0boh14q" path="res://Graphics/things/card4 (1).png" id="5_ktv83"]
+[ext_resource type="Texture2D" uid="uid://c13hqfen3kvy0" path="res://Graphics/things/outline (1).png" id="5_ne48j"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_a3oh8")
+
+[node name="C1" type="Sprite2D" parent="."]
+position = Vector2(132, 218)
+texture = ExtResource("2_306ey")
+
+[node name="C2" type="Sprite2D" parent="."]
+position = Vector2(549, 282)
+scale = Vector2(0.77138, 0.782937)
+texture = ExtResource("5_ktv83")
+
+[node name="Outline(1)" type="Sprite2D" parent="."]
+position = Vector2(37, 279)
+scale = Vector2(0.755566, 0.76)
+texture = ExtResource("5_ne48j")
